@@ -1,0 +1,39 @@
+@import 'utilities.styl'
+
+body:not(.home) .site-footer:before
+  margin auto
+  width 80%
+  height 2px
+  background-color #767676
+  content ' '
+
+.home .widget-area
+  display none
+
+.widget
+  padding 1rem 1rem 0
+  shadow()
+
+.widget_search
+  form
+    display flex
+    margin-bottom 1rem
+    align-items baseline
+
+  label
+    margin-right 1rem
+    flex 1 1 auto
+
+  .search-field
+        width 100%
+
+.widget-title
+  margin-top 0
+
+#colophon .site-info
+  margin 0
+  padding 1rem
+  background-color #3b4e9f
+  color #ffffff
+  text-align center
+  _copyright()

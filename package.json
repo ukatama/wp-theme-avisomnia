@@ -1,0 +1,15 @@
+{
+  "name": "avisomnia",
+  "version": "1.0.0",
+  "private": true,
+  "license": "UNLICENSED",
+  "author": "esnya",
+  "main": "index.js",
+  "scripts": {
+    "build": "stylus style.styl"
+  },
+  "devDependencies": {
+    "getbasis": "^6.4.0",
+    "stylus": "^0.54.5"
+  }
+}

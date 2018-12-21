@@ -1,0 +1,47 @@
+
+.site-header
+  padding 0
+
+.site-branding-container
+
+.site-branding
+  overflow hidden
+  margin 0
+
+.site-logo
+  display none
+
+.site-title
+  display block
+  height 180px
+  background-color #3b4e9f
+  background-position center center
+  background-size contain
+  background-repeat no-repeat
+
+  a
+    display none
+
+.site-title:not(:empty) + .site-description:not(:empty):before
+  display none
+
+.site-description
+  display none
+  color #ffffff
+
+.main-navigation
+  margin-top 0
+  padding 0.5rem 0
+  background-color #3b4e9f
+
+  .main-menu
+    _navbar()
+
+    .menu-item
+      @extend .main-navigation .main-menu__item
+
+      & > a
+        color #ffffff
+
+        &:hover
+          color #dddddd
