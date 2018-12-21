@@ -22,7 +22,13 @@
   a
     display none
 
+.featured-image .site-title
+  display block
+
 .site-title:not(:empty) + .site-description:not(:empty):before
+  display none
+
+.image-filters-enabled .featured-image
   display none
 
 .site-description
@@ -33,6 +39,7 @@
   margin-top 0
   padding 0.5rem 0
   background-color #3b4e9f
+  transform translate3d(0, 0, -5px)
 
   .main-menu
     _navbar()
@@ -45,3 +52,18 @@
 
         &:hover
           color #dddddd
+
+.site-featured-image #breadcrumbs
+  color #dddddd
+
+.site-header.featured-image:after
+  animation featured-image-after 0.6s ease-in-out 0.6s both
+
+@keyframes featured-image-after {
+  0% {
+    opacity 0
+  }
+  100% {
+    opacity 0.7
+  }
+}

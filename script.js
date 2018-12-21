@@ -1,5 +1,7 @@
 'use strict';
 
+document.body.className = document.body.className.replace('image-filters-enabled', '');
+
 document.querySelectorAll('.parallax').forEach((element) => {
   const containerElement = document.createElement('div');
   containerElement.className = 'parallax-container';
@@ -18,7 +20,7 @@ document.querySelectorAll('.parallax-overlay').forEach((element) => {
 
 function moveBreadcrumbs() {
   const element = document.querySelector('#breadcrumbs');
-  const targetElement = document.querySelector('#main > article > header');
+  const targetElement = document.querySelector('#main > article > header') || document.querySelector('#masthead .entry-header');
   if (!element || !targetElement) return;
 
   targetElement.prepend(element);
@@ -34,4 +36,11 @@ const rellaxOptions = {
 new Rellax('.site-title', {
   speed: -8,
 });
-new Rellax('.wp-block-image.parallax > img', rellaxOptions);
+
+const rellaxElements = document.querySelectorAll([
+  '.site-header.featured-image .site-featured-image .post-thumbnail img',
+  '.wp-block-image.parallax > img',
+].join(','));
+rellaxElements.forEach((element) => {
+  new Rellax(element, rellaxOptions);
+});
