@@ -1,13 +1,14 @@
 let parallaxTargets = [];
-function parallax(element) {
-  parallaxTargets.push(element);
+function parallax(element, fill) {
+  parallaxTargets.push({ fill, element });
 }
 
 function setupParallax() {
   function parallaxOnScroll() {
-    parallaxTargets.forEach((element) => {
-      const y = (window.scrollY - element.parentElement.offsetTop) * 0.5;
-      element.style.transform = `translate3d(0,${y}px,0)`;
+    parallaxTargets.forEach(({ fill, element }) => {
+      const y1 = window.scrollY - (fill ? element.parentElement.offsetTop : 0);
+      const y2 = (fill ? y1 : Math.max(y1, 0)) * 0.5;
+      element.style.transform = `translate3d(0,${y2}px,0)`;
     });
   }
   window.addEventListener('scroll', parallaxOnScroll);
@@ -43,11 +44,13 @@ function setup() {
   }
   moveBreadcrumbs();
 
-  parallax(document.querySelector('.site-title'));
-  document.querySelectorAll([
-      '.site-header.featured-image .site-featured-image .post-thumbnail img',
-      '.wp-block-image.parallax > img',
-  ].join(',')).forEach(parallax);
+  parallax(document.querySelector('.site-title'), true);
+  document.querySelectorAll('.wp-block-image.parallax > img').forEach((element) => {
+    parallax(element, true);
+  });
+  document.querySelectorAll('.site-header.featured-image .site-featured-image .post-thumbnail img').forEach((element) => {
+    parallax(element, false);
+  });
 
   setupParallax();
 }
