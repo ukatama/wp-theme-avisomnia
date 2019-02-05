@@ -412,11 +412,17 @@ body:not(.home) .site-footer:before {
 .wp-block-image.parallax {
   position: relative;
   overflow: hidden;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
 }
 .wp-block-image.parallax > img {
   object-fit: cover;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: 100vh !important;
+  max-height: 100vh !important;
 }
 .wp-block-image.parallax .parallax-container {
   position: absolute;
